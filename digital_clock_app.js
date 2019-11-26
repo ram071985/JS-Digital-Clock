@@ -1,15 +1,24 @@
-
 /* Digital Clock App by Reid Muchow */
 
-var today = new Date();
-var hours = today.getHours();
-var minutes = today.getMinutes();
-var seconds = today.getSeconds();
-var day = today.getDay();
-var month = today.getMonth();
-var date = today.getDate();
+let todayDate = new Date();
+let day = todayDate.getDate();
+let month = todayDate.getMonth();
+let year = todayDate.getFullYear();
 
-var elDate = document.getElementById('date');
-elDate.innerHTML = '<h1>' + date + ',' + month + seconds + '</h1>'; 
-var elTime = document.getElementById('time');
-elTime.innerHTML = '<h1>' + hours + ':' + minutes + ':' + seconds + '</h1>';
+let elDate = document.getElementById('date');
+elDate.textContent =  month + '/' + day + '/' + year;
+
+function time () {
+let timeDate = new Date();
+let hours = timeDate.getHours();
+let minutes = timeDate.getMinutes();
+let seconds = timeDate.getSeconds();
+
+let elTime = document.getElementById('time');
+elTime.textContent = hours + ':' + minutes + ':' + seconds;
+}
+
+setInterval(time, 1000);
+
+
+
