@@ -9,7 +9,7 @@ var day = today.getDay();
 var month = today.getMonth();
 var date = today.getDate();
 
-var el = document.getElementById('date');
-el.innerHTML = '<h1>' + date + ',' + month + seconds + '</h1>'; 
-var el = document.getElementById('time');
-el.innerHTML = '<h1>' + hours + ':' + minutes + ':' + seconds + '</h1>';
+var elDate = document.getElementById('date');
+elDate.innerHTML = '<h1>' + date + ',' + month + seconds + '</h1>'; 
+var elTime = document.getElementById('time');
+elTime.innerHTML = '<h1>' + hours + ':' + minutes + ':' + seconds + '</h1>';
