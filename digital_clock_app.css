@@ -14,7 +14,10 @@ body {
 }
 
 h1  {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8067d7c7ebf0f55d5126ff2450d6c17ccb655c5d
     font-family: 'Roboto', sans-serif;
     color: rgb(37, 149, 201);
 }
@@ -80,4 +83,8 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 8067d7c7ebf0f55d5126ff2450d6c17ccb655c5d
