@@ -1,71 +1,68 @@
 /* Digital Clock App by Reid Muchow */
 
-<<<<<<< HEAD
-var currentTime = new Date();
+function myClock() {
+  let currentTime = new Date ( );
+  let currentDay = currentTime.getDay ( );
+  currentDay = (currentDay == 0) ? "Sun" : currentDay;
+  currentDay = (currentDay == 1) ? "Mon" : currentDay;
+  currentDay = (currentDay == 2) ? "Tue" : currentDay;
+  currentDay = (currentDay == 3) ? "Wed" : currentDay;
+  currentDay = (currentDay == 4) ? "Thu" : currentDay;
+  currentDay = (currentDay == 5) ? "Fri" : currentDay;
+  currentDay = (currentDay == 6) ? "Sat" : currentDay;
+  
+  let currentMonth = currentTime.getMonth(); 
+  currentMonth = (currentMonth == 0) ? "January" : currentMonth;
+  currentMonth = (currentMonth == 1) ? "February" : currentMonth;
+  currentMonth = (currentMonth == 2) ? "March" : currentMonth;
+  currentMonth = (currentMonth == 3) ? "April" : currentMonth;
+  currentMonth = (currentMonth == 4) ? "May" : currentMonth;
+  currentMonth = (currentMonth == 5) ? "June" : currentMonth;
+  currentMonth = (currentMonth == 6) ? "July" : currentMonth;
+  currentMonth = (currentMonth == 7) ? "August" : currentMonth;
+  currentMonth = (currentMonth == 8) ? "September" : currentMonth;
+  currentMonth = (currentMonth == 9) ? "October" : currentMonth;
+  currentMonth = (currentMonth == 10) ? "November" : currentMonth;
+  currentMonth = (currentMonth == 11) ? "December" : currentMonth;
 
-var currentHours = currentTime.getHours();
-var currentMinutes = currentTime.getMinutes();
-var currentSeconds = currentTime.getSeconds();
+  let currentDate = currentTime.getDate();
+  currentDate = (currentDate == 1 || currentDate == 21 || currentDate == 31 ) ? currentDate + "st" : currentDate;
+  currentDate = (currentDate == 2 || currentDate == 22 ) ? currentDate + "nd" : currentDate;
+  currentDate = (currentDate == 3 ) || currentDate == 23 ? currentDate + "rd" : currentDate;
+  currentDate = (currentDate > 3 || currentDate < 21 || currentDate > 23 || currentDate < 31 ) ? currentDate + "th" : currentDate;
 
-currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
-currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+  let currentHours = currentTime.getHours ();
+  let currentMinutes = currentTime.getMinutes ();
+  let currentSeconds = currentTime.getSeconds ();
+  currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+  currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
 
-var timeofDay = ( currentHours < 12 ) ? "AM" : "PM";
-currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
-currentHours = ( currentHours == 0 ) ? 12 : currentHours;
-=======
-/* Digital Clock App by Reid Muchow */
+  let timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+  currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+  currentMilitaryHours = currentTime.getHours ();
+  currentHours = ( currentHours == 0 ) ? 12 : currentHours;
 
-let todayDate = new Date();
-let day = todayDate.getDate();
-let month = todayDate.getMonth();
-let year = todayDate.getFullYear();
->>>>>>> 8067d7c7ebf0f55d5126ff2450d6c17ccb655c5d
+  let currentTimeString = currentDay + " " + currentMonth +  " " + currentDate + " " + currentHours + ":" + currentMinutes + ":" + currentSeconds +  " " + timeOfDay;
+  document.getElementById("clock").firstChild.nodeValue = currentTimeString;
 
+  let militaryTimeString = "Today is : " + currentDay + " " + currentMonth +  " " + currentDate + " " + currentMilitaryHours + ":" + currentMinutes + ":" + currentSeconds +  " ";
+  document.getElementById("clockMilitary").firstChild.nodeValue = militaryTimeString;
 
-
-<<<<<<< HEAD
-=======
-let clock = document.getElementById('time');
-clock.textContent = hours + ':' + minutes + ':' + seconds;
-if (hours == 13) {
-  let clock = document.getElementById('time');
-  clock.textContent = 1 + hours + ':' + minutes + ':' + seconds; 
-if (hours == 14) {
-  let clock = document.getElementById('time');
-    clock.textContent = 2 + hours + ':' + minutes + ':' + seconds; 
-if (hours == 15) {
-  let clock = document.getElementById('time');
-      nonMilitary.textContent = 3 + hours + ':' + minutes + ':' + seconds; 
-if (hours == 16) {
-  let nonMilitary = document.getElementById('time');
-        nonMilitary.textContent = 4 + hours + ':' + minutes + ':' + seconds; 
-if (hours == 17) {
-  let nonMilitary = document.getElementById('time');
-          nonMilitary.textContent = 5 + hours + ':' + minutes + ':' + seconds; 
-if (hours == 18) {
-  let nonMilitary = document.getElementById('time');
-  nonMilitary.textContent = 6 + hours + ':' + minutes + ':' + seconds;
-if (hours == 19) {
-  let nonMilitary = document.getElementById('time');
-    nonMilitary.textContent = 7 + hours + ':' + minutes + ':' + seconds;
-if (hours == 20) {
-  let nonMilitary = document.getElementById('time');
-      nonMilitary.textContent = 8 + hours + ':' + minutes + ':' + seconds;
-if (hours == 21) {
-  let nonMilitary = document.getElementById('time');
-    nonMilitary.textContent = 9 + hours + ':' + minutes + ':' + seconds;
-if (hours == 22) {
-  let nonMilitary = document.getElementById('time');
-      nonMilitary.textContent = 10 + hours + ':' + minutes + ':' + seconds;
-if (hours == 18) {
-  let nonMilitary = document.getElementById('time');
-    nonMilitary.textContent = 11 + hours + ':' + minutes + ':' + seconds;
-if (hours == 18) {
-  let nonMilitary = document.getElementById('time');
-    nonMilitary.textContent = 12 + hours + ':' + minutes + ':' + seconds;
 }
->>>>>>> 8067d7c7ebf0f55d5126ff2450d6c17ccb655c5d
+
+setInterval(myClock, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -14,15 +14,11 @@ body {
 }
 
 h1  {
-<<<<<<< HEAD
-
-=======
->>>>>>> 8067d7c7ebf0f55d5126ff2450d6c17ccb655c5d
     font-family: 'Roboto', sans-serif;
     color: rgb(37, 149, 201);
 }
 
-/* The switch - the box around the slider */
+
 .switch {
   position: relative;
   display: inline-block;
@@ -30,14 +26,13 @@ h1  {
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
+
 .slider {
   position: absolute;
   cursor: pointer;
@@ -76,15 +71,11 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
+
 .slider.round {
   border-radius: 34px;
 }
 
 .slider.round:before {
   border-radius: 50%;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 8067d7c7ebf0f55d5126ff2450d6c17ccb655c5d
