@@ -43,15 +43,22 @@ function myClock() {
   currentHours = ( currentHours == 0 ) ? 12 : currentHours;
 
   let currentTimeString = currentDay + " " + currentMonth +  " " + currentDate + " " + currentHours + ":" + currentMinutes + ":" + currentSeconds +  " " + timeOfDay;
-  document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+  let militaryTime = "Today is : " + currentDay + " " + currentMonth +  " " + currentDate + " " + currentMilitaryHours + ":" + currentMinutes + ":" + currentSeconds +  " ";
+  
 
-  let militaryTimeString = "Today is : " + currentDay + " " + currentMonth +  " " + currentDate + " " + currentMilitaryHours + ":" + currentMinutes + ":" + currentSeconds +  " ";
-  document.getElementById("clockMilitary").firstChild.nodeValue = militaryTimeString;
+  if (isMilitaryTime === false ) {
+    document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+  } else {
+    document.getElementById("clock").firstChild.nodeValue = militaryTime;
+  }
+
+  document.getElementById("toggleButton").addEventListener("click", militaryTime);
 
 }
 
 setInterval(myClock, 1000);
 
+let isMilitaryTime = true;
 
 
 
