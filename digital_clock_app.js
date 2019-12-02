@@ -59,10 +59,10 @@ setInterval(myClock, 1000);
 let isMilitaryTime = true;
 
 document.getElementById("toggleButton").addEventListener("click", function(){
-  if (isMilitaryTime = true) {
-  isMilitaryTime = false;
-}  else if (isMilitaryTime = false) {
-  isMilitaryTime = true;
+  if (isMilitaryTime === false) {
+   isMilitaryTime = true;
+}  else if(isMilitaryTime === true) {
+   isMilitaryTime = false;
 }
 })
 
