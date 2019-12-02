@@ -52,13 +52,15 @@ function myClock() {
     document.getElementById("clock").firstChild.nodeValue = militaryTime;
   }
 
-  document.getElementById("toggleButton").addEventListener("click", militaryTime);
-
 }
 
 setInterval(myClock, 1000);
 
 let isMilitaryTime = true;
+
+document.getElementById("toggleButton").addEventListener("click", function() {
+  isMilitaryTime = !true;
+}
 
 
 
