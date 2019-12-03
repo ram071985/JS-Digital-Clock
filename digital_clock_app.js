@@ -42,7 +42,7 @@ function myClock() {
   currentMilitaryHours = currentTime.getHours ();
   currentHours = ( currentHours == 0 ) ? 12 : currentHours;
 
-  let currentTimeString = currentDay + " " + currentMonth +  " " + currentDate + " " + currentHours + ":" + currentMinutes + ":" + currentSeconds +  " " + timeOfDay;
+  let currentTimeString = "Today is : " + currentDay + " " + currentMonth +  " " + currentDate + " " + currentHours + ":" + currentMinutes + ":" + currentSeconds +  " " + timeOfDay;
   let militaryTime = "Today is : " + currentDay + " " + currentMonth +  " " + currentDate + " " + currentMilitaryHours + ":" + currentMinutes + ":" + currentSeconds +  " ";
   
 
