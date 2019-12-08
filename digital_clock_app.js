@@ -1,57 +1,84 @@
 /* Digital Clock App by Reid Muchow */
 
+
+
 function myClock() {
   let currentTime = new Date ( );
-  let currentDay = currentTime.getDay ( );
-  currentDay = (currentDay == 0) ? "Sun" : currentDay;
-  currentDay = (currentDay == 1) ? "Mon" : currentDay;
-  currentDay = (currentDay == 2) ? "Tue" : currentDay;
-  currentDay = (currentDay == 3) ? "Wed" : currentDay;
-  currentDay = (currentDay == 4) ? "Thu" : currentDay;
-  currentDay = (currentDay == 5) ? "Fri" : currentDay;
-  currentDay = (currentDay == 6) ? "Sat" : currentDay;
-  
-  let currentMonth = currentTime.getMonth(); 
-  currentMonth = (currentMonth == 0) ? "January" : currentMonth;
-  currentMonth = (currentMonth == 1) ? "February" : currentMonth;
-  currentMonth = (currentMonth == 2) ? "March" : currentMonth;
-  currentMonth = (currentMonth == 3) ? "April" : currentMonth;
-  currentMonth = (currentMonth == 4) ? "May" : currentMonth;
-  currentMonth = (currentMonth == 5) ? "June" : currentMonth;
-  currentMonth = (currentMonth == 6) ? "July" : currentMonth;
-  currentMonth = (currentMonth == 7) ? "August" : currentMonth;
-  currentMonth = (currentMonth == 8) ? "September" : currentMonth;
-  currentMonth = (currentMonth == 9) ? "October" : currentMonth;
-  currentMonth = (currentMonth == 10) ? "November" : currentMonth;
-  currentMonth = (currentMonth == 11) ? "December" : currentMonth;
-
-  let currentDate = currentTime.getDate();
-  currentDate = (currentDate == 1 || currentDate == 21 || currentDate == 31 ) ? currentDate + "st" : currentDate;
-  currentDate = (currentDate == 2 || currentDate == 22 ) ? currentDate + "nd" : currentDate;
-  currentDate = (currentDate == 3 ) || currentDate == 23 ? currentDate + "rd" : currentDate;
-  currentDate = (currentDate > 3 || currentDate < 21 || currentDate > 23 || currentDate < 31 ) ? currentDate + "th" : currentDate;
-
+  let currentDay = formatDay(currentTime.getDay());
+  let currentMonth = formatMonth(currentTime.getMonth());
+  let currentDate = formatDate(currentTime.getDate());
   let currentHours = currentTime.getHours ();
-  let currentMinutes = currentTime.getMinutes ();
-  let currentSeconds = currentTime.getSeconds ();
-  currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
-  currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+  let currentMinutes = formatMinutes(currentTime.getMinutes());
+  let currentSeconds = formatSeconds(currentTime.getSeconds ());
+  let regularHours = formatRegularHours();
+  let ampm = formatAmPm();
 
-  let timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
-  currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
-  currentMilitaryHours = currentTime.getHours ();
-  currentHours = ( currentHours == 0 ) ? 12 : currentHours;
-
-  let currentTimeString = "Today is : " + currentDay + " " + currentMonth +  " " + currentDate + " " + currentHours + ":" + currentMinutes + ":" + currentSeconds +  " " + timeOfDay;
-  let militaryTime = "Today is : " + currentDay + " " + currentMonth +  " " + currentDate + " " + currentMilitaryHours + ":" + currentMinutes + ":" + currentSeconds +  " ";
+  let currentTimeString = "Today is : " + currentDay + " " + currentMonth +  " " + currentDate + " " + regularHours + ":" + currentMinutes + ":" + currentSeconds +  " " + ampm;
+  let militaryTime = "Today is : " + currentDay + " " + currentMonth +  " " + currentDate + " " + currentHours + ":" + currentMinutes + ":" + currentSeconds +  " ";
   
-
   if (isMilitaryTime === false ) {
     document.getElementById("clock").firstChild.nodeValue = currentTimeString;
   } else {
     document.getElementById("clock").firstChild.nodeValue = militaryTime;
   }
 
+  function formatDate(date) {
+    if (date == 1 || date == 21 || date == 31 ) return date + "st";
+    if (date == 2 || date == 22 ) return date + "nd";
+    if (date == 3 || date == 23) return date + "rd";
+    if (date > 3 || date < 21 || date > 23 || date < 31 ) return date + "th";
+    
+  }
+
+  function formatDay(day) {
+    if (day == 0) return "Sun";
+    if (day == 1) return "Mon";
+    if (day == 2) return "Tue";
+    if (day == 3) return "Wed";
+    if (day == 4) return "Thu";
+    if (day == 5) return "Fri";
+    if (day == 6) return "Sat";
+  
+    return day
+  }
+
+  function formatMonth(month) {
+    if (month == 0) return "January";
+    if (month == 1) return "February";
+    if (month == 2) return "March";
+    if (month == 3) return "April";
+    if (month == 4) return "May";
+    if (month == 5) return "June";
+    if (month == 6) return "July";
+    if (month == 7) return "August";
+    if (month == 8) return "September";
+    if (month == 9) return "October";
+    if (month == 10)return "November";
+    if (month == 11) return "December";
+    
+    return month;
+  }
+
+  function formatRegularHours() {
+    if (currentHours > 12) return currentHours - 12;
+  }
+  
+  function formatAmPm() {
+    if (currentHours < 12) return "AM";
+    if (currentHours > 12 - 12) return "PM";
+  }
+
+  function formatMinutes(minutes) {
+    if (minutes < 10) return "0"; 
+    if (minutes > 10) return "";
+
+    return formatMinutes();
+  }
+
+  function formatSeconds(seconds) {
+    if (seconds < 10) return "0";
+  }
+  
 }
 
 setInterval(myClock, 1000);
@@ -59,12 +86,15 @@ setInterval(myClock, 1000);
 let isMilitaryTime = true;
 
 document.getElementById("toggleButton").addEventListener("click", function(){
+  isMilitaryTime = !isMilitaryTime;
   if (isMilitaryTime === false) {
-   isMilitaryTime = true;
-}  else if(isMilitaryTime === true) {
-   isMilitaryTime = false;
+    isMilitaryTime = true;
+}   else if(isMilitaryTime === true) {
+    isMilitaryTime = false;
 }
 })
+
+  myClock();
 
 
 
