@@ -1,20 +1,30 @@
 /* Digital Clock App by Reid Muchow */
 
+function formatMinutes() {
+  if (currentMinutes < 10) return "0 "; 
+  if (currentMinutes > 10) return "  ";
 
+  return formatMinutes();
+}
 
 function myClock() {
   let currentTime = new Date ( );
   let currentDay = formatDay(currentTime.getDay());
   let currentMonth = formatMonth(currentTime.getMonth());
   let currentDate = formatDate(currentTime.getDate());
-  let currentHours = currentTime.getHours ();
-  let currentMinutes = formatMinutes(currentTime.getMinutes());
-  let currentSeconds = formatSeconds(currentTime.getSeconds ());
+  let currentHours = currentTime.getHours();
+  let currentMinutes = currentTime.getMinutes();
+  let currentSeconds = currentTime.getSeconds();
   let regularHours = formatRegularHours();
   let ampm = formatAmPm();
+  let minutes = formatMinutes();
+  let seconds = formatSeconds();
 
-  let currentTimeString = "Today is : " + currentDay + " " + currentMonth +  " " + currentDate + " " + regularHours + ":" + currentMinutes + ":" + currentSeconds +  " " + ampm;
-  let militaryTime = "Today is : " + currentDay + " " + currentMonth +  " " + currentDate + " " + currentHours + ":" + currentMinutes + ":" + currentSeconds +  " ";
+  const test = formatMinutes();
+  console.log(test);
+
+  let currentTimeString = "Today is : " + currentDay + " " + currentMonth +  " " + currentDate + " " + regularHours + ":" + minutes + ":" + seconds +  " " + ampm;
+  let militaryTime = "Today is : " + currentDay + " " + currentMonth +  " " + currentDate + " " + currentHours + ":" + minutes + ":" + seconds +  " ";
   
   if (isMilitaryTime === false ) {
     document.getElementById("clock").firstChild.nodeValue = currentTimeString;
@@ -68,15 +78,19 @@ function myClock() {
     if (currentHours > 12 - 12) return "PM";
   }
 
-  function formatMinutes(minutes) {
-    if (minutes < 10) return "0"; 
-    if (minutes > 10) return "";
-
+  function formatMinutes() {
+    if (currentMinutes < 10) return "0" + currentMinutes; 
+    if (currentMinutes > 10) return currentMinutes;
+  
     return formatMinutes();
   }
+  
 
-  function formatSeconds(seconds) {
-    if (seconds < 10) return "0";
+  function formatSeconds() {
+    if (currentSeconds < 10) return "0" + currentSeconds;
+    if (currentSeconds > 10) return currentSeconds;
+    
+    return formatSeconds();
   }
   
 }
@@ -87,12 +101,8 @@ let isMilitaryTime = true;
 
 document.getElementById("toggleButton").addEventListener("click", function(){
   isMilitaryTime = !isMilitaryTime;
-  if (isMilitaryTime === false) {
-    isMilitaryTime = true;
-}   else if(isMilitaryTime === true) {
-    isMilitaryTime = false;
-}
-})
+
+});
 
   myClock();
 
