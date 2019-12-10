@@ -13,7 +13,7 @@ This is my 1st time programming an app and I learned so much in the process.  Wh
 
 ## Author 
 
-* **Reid Muchow** - *Front-End Software Developer* - [Website](https://www.reidmuchow.com) | [LinkedIn](https://www.linkedin.com/in/reidmuchow/))
+* **Reid Muchow** - *Front-End Software Developer* - [Website](https://www.reidmuchow.com) | [LinkedIn](https://www.linkedin.com/in/reidmuchow/)
 
 
 
