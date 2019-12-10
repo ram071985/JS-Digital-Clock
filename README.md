@@ -1,6 +1,6 @@
 # Vanilla Javascript Digital Clock App
 
-A simple digital and easy to use 12/24 hour clock emphasizing clean code usage and is written with pure Javascript, HTML and CSS
+A simple digital and easy to use 12/24 hour clock emphasizing clean code usage.  All of it is written with pure Javascript, HTML and CSS.
 
 ## Summary
 
